@@ -12,7 +12,7 @@ const sections = [
   {
     title: "Top Highlights",
     content:
-      "✔️ Timeless retro design\n✔️ Smooth 349cc single-cylinder engine\n✔️ Dual-channel ABS\n✔️ Premium chrome finishes",
+      "✔ Timeless retro design\n✔ Smooth 349cc single-cylinder engine\n✔ Dual-channel ABS\n✔ Premium chrome finishes",
   },
   {
     title: "Product Specifications",
@@ -35,25 +35,25 @@ export default function ProductDetails() {
 
   return (
     <section className="w-full">
-      <div className="shadow-md divide-y">
+      <div className="divide-y border-b border-white">
         {sections.map((item, index) => (
           <div key={index}>
             {/* Header */}
             <button
               onClick={() => toggleSection(index)}
-              className="w-full flex justify-between items-center px-4 py-4 text-left text-lg font-medium text-gray-800 hover:bg-gray-50"
+              className="w-full flex justify-between items-center px-4 py-4 text-left text-lg font-medium text-black cursor-pointer"
             >
               {item.title}
               {openIndex === index ? (
-                <FaChevronDown className="text-gray-500" />
+                <FaChevronDown className="text-black" />
               ) : (
-                <FaChevronRight className="text-gray-500" />
+                <FaChevronRight className="text-black" />
               )}
             </button>
 
             {/* Content */}
             {openIndex === index && (
-              <div className="px-4 pb-4 text-gray-600 whitespace-pre-line">
+              <div className="px-4 pb-4 text-[#303030]  whitespace-pre-line">
                 {item.content}
               </div>
             )}

@@ -58,7 +58,7 @@ export default function BikeShowcase() {
             alt={`Royal Enfield Classic 350 - ${selectedColor}`}
             width={1200}
             height={600}
-            className="w-full h-auto object-contain"
+            className="w-full  object-contain"
             priority
           />
         </div>
@@ -92,20 +92,20 @@ export default function BikeShowcase() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             {/* LEFT SIDE: Price + Selected Color */}
             <div className="flex flex-col">
-              <p className="text-gray-500 text-lg">Starting From</p>
+              <p className="text-[#303030] text-lg">Starting From</p>
               <p className="text-3xl font-bold text-gray-900 mt-1 transition-all duration-500">
                 ₹{new Intl.NumberFormat("en-IN").format(250000)}
               </p>
               {selectedColor && (
-                <p className="text-md text-gray-600 mt-2">
-                  Selected: <span className="font-medium">{selectedColor}</span>
+                <p className="text-md text-[#303030] mt-2">
+                  Selected: <span className="font-medium text-black">{selectedColor}</span>
                 </p>
               )}
             </div>
         
             {/* RIGHT SIDE: Color Options */}
             <div className="flex flex-col items-start md:items-end">
-              <p className="text-gray-600 text-sm mb-2">Choose Color:</p>
+              <p className="text-[#303030] text-sm mb-4 md:mx-auto">Choose Color:</p>
               <div className="flex flex-wrap gap-6">
                 {colors.map((color) => (
                   <div key={color.name} className="flex flex-col items-center">
@@ -122,9 +122,6 @@ export default function BikeShowcase() {
                       style={{ backgroundColor: color.hex }}
                       title={color.name}
                     >
-                      {/* {selectedColor === color.name && (
-                        <span className="absolute text-white text-lg">✔</span>
-                      )} */}
                     </button>
                     <span className="text-xs text-gray-600 mt-1">{color.name}</span>
                   </div>

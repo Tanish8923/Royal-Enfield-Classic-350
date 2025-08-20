@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className=" border-t border-gray-700 text-gray-300">
+    <footer className=" border-t border-[#303030] text-gray-300">
       {/* Top Section */}
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         
@@ -37,7 +37,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t border-gray-700 text-center py-4 text-sm">
+      <div className="border-t border-[#303030] text-center py-4 text-sm">
         © {new Date().getFullYear()} Royal Enfield. All rights reserved.
       </div>
     </footer>

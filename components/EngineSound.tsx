@@ -33,7 +33,7 @@ export default function EngineSound() {
           alt="Royal Enfield Engine"
           width={500}
           height={500}
-          className="rounded object-contain w-full h-auto max-h-[80vh] drop-shadow-xl"
+          className="rounded-2xl object-contain w-full h-auto max-h-[80vh] drop-shadow-xl"
         />
       </div>
 
@@ -45,7 +45,7 @@ export default function EngineSound() {
 
         <motion.button
           onClick={toggleEngine}
-          className={`relative flex items-center space-x-2 px-8 md:px-10 py-4 md:py-5 rounded-full shadow-lg text-base md:text-lg font-semibold transition-all duration-300 ${
+          className={`relative flex items-center space-x-2 px-8 md:px-10 py-4 md:py-5 rounded-full shadow-lg text-base md:text-lg cursor-pointer font-semibold transition-all duration-300 ${
             running
               ? "bg-red-600 hover:bg-red-700"
               : "bg-green-600 hover:bg-green-700"

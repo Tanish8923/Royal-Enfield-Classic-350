@@ -25,7 +25,7 @@ export default function ComparisonSection() {
   const [comp, setComp] = useState<Competitor>("Honda CB350");
 
   return (
-    <section className="mx-auto px-4 py-8 text-white">
+    <section className="mx-auto px-4 py-8 text-white border-t border-[#303030]">
       <h2 className="text-2xl font-bold mb-4 text-center">Classic 350 vs Competitors</h2>
       
       {/* Toggle Buttons */}
@@ -34,9 +34,9 @@ export default function ComparisonSection() {
           <button
             key={c}
             onClick={() => setComp(c)}
-            className={`px-4 py-2 rounded-full font-medium transition ${
+            className={`px-4 py-2 rounded-full font-medium cursor-pointer transition ${
               comp === c
-                ? "bg-red-600 text-white"
+                ? "bg-[#3c3d3c] text-white"
                 : "bg-gray-200 text-gray-800 hover:bg-gray-300"
             }`}
           >
