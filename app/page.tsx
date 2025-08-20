@@ -9,7 +9,13 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
+    <div className="pt-14 min-h-screen w-full 
+     bg-gradient-to-b 
+   from-white 
+   via-[#f9f9f9] 
+   to-black 
+     via-30% 
+     to-70%">
       <Navbar/>
       <BikeShowcase/>
       <ProductDetails/>

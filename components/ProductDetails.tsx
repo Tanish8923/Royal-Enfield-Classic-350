@@ -35,7 +35,7 @@ export default function ProductDetails() {
 
   return (
     <section className="w-full">
-      <div className="shadow-md bg-white divide-y">
+      <div className="shadow-md divide-y">
         {sections.map((item, index) => (
           <div key={index}>
             {/* Header */}

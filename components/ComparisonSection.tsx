@@ -25,39 +25,52 @@ export default function ComparisonSection() {
   const [comp, setComp] = useState<Competitor>("Honda CB350");
 
   return (
-    <section className="max-w-4xl mx-auto my-12 px-4 py-8 bg-white rounded-lg shadow-md">
+    <section className="mx-auto px-4 py-8 text-white">
       <h2 className="text-2xl font-bold mb-4 text-center">Classic 350 vs Competitors</h2>
+      
+      {/* Toggle Buttons */}
       <div className="flex justify-center space-x-4 mb-6">
         {competitors.map((c) => (
           <button
             key={c}
             onClick={() => setComp(c)}
-            className={`px-4 py-2 rounded-full font-medium ${
-              comp === c ? "bg-red-600 text-white" : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+            className={`px-4 py-2 rounded-full font-medium transition ${
+              comp === c
+                ? "bg-red-600 text-white"
+                : "bg-gray-200 text-gray-800 hover:bg-gray-300"
             }`}
           >
             {c}
           </button>
         ))}
       </div>
-      <table className="w-full text-sm md:text-base">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="p-2">Spec</th>
-            <th className="p-2 text-red-600">Classic 350</th>
-            <th className="p-2">{comp}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {facts[comp].map((row, idx) => (
-            <tr key={idx} className={idx % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-              <td className="p-2">{row.label}</td>
-              <td className="p-2 font-semibold">{row.re350}</td>
-              <td className="p-2">{row.other}</td>
+
+      {/* Table */}
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm md:text-base border-collapse">
+          <thead>
+            <tr className="border-b border-gray-700">
+              <th className="p-3 text-left">Spec</th>
+              <th className="p-3 text-center text-red-500">Classic 350</th>
+              <th className="p-3 text-center">{comp}</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {facts[comp].map((row, idx) => (
+              <tr
+                key={idx}
+                className={`${
+                  idx % 2 === 0 ? "" : "bg-[#3c3d3c]"
+                }`}
+              >
+                <td className="p-3 text-left">{row.label}</td>
+                <td className="p-3 text-center font-semibold">{row.re350}</td>
+                <td className="p-3 text-center">{row.other}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }

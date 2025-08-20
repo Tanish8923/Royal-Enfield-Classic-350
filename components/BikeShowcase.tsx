@@ -10,18 +10,30 @@ type BikeColor = "Gray" | "Red" | "Black";
 const bikeVariants: Record<BikeColor, string[]> = {
   Gray: [
     "/images/royalEnfieldGray.avif",
-    "/images/royalEnfieldGray2.avif",
-    "/images/royalEnfieldGray3.avif",
+    "/images/royalEnfieldFront.avif",
+    "/images/royalEnfieldBack.avif",
+    "/images/royalEnfieldEngine.avif",
+    "/images/royalEnfieldHead.avif",
+    "/images/royalEnfieldSilencer.avif",
+    "/images/royalEnfieldSpeedMeter.avif"
   ],
   Red: [
     "/images/royalEnfieldMadrasRed.avif",
-    "/images/royalEnfieldMadrasRed2.avif",
-    "/images/royalEnfieldMadrasRed3.avif",
+    "/images/royalEnfieldFront.avif",
+    "/images/royalEnfieldBack.avif",
+    "/images/royalEnfieldEngine.avif",
+    "/images/royalEnfieldHead.avif",
+    "/images/royalEnfieldSilencer.avif",
+    "/images/royalEnfieldSpeedMeter.avif"
   ],
   Black: [
     "/images/royalEnfieldBlack.avif",
-    "/images/royalEnfieldBlack2.avif",
-    "/images/royalEnfieldBlack3.avif",
+    "/images/royalEnfieldFront.avif",
+    "/images/royalEnfieldBack.avif",
+    "/images/royalEnfieldEngine.avif",
+    "/images/royalEnfieldHead.avif",
+    "/images/royalEnfieldSilencer.avif",
+    "/images/royalEnfieldSpeedMeter.avif"
   ],
 };
 
@@ -36,8 +48,8 @@ export default function BikeShowcase() {
   const [selectedImage, setSelectedImage] = useState(bikeVariants["Gray"][0]);
 
   return (
-    <section className="w-full bg-white py-8">
-      <div className="w-full max-w-7xl mx-auto px-4">
+    <section className="w-full">
+      <div className="w-full max-w-7xl mx-auto">
         
         {/* Main Bike Image */}
         <div className="w-full flex justify-center mb-6">
@@ -46,20 +58,20 @@ export default function BikeShowcase() {
             alt={`Royal Enfield Classic 350 - ${selectedColor}`}
             width={1200}
             height={600}
-            className="rounded-lg shadow-md w-full h-auto object-contain"
+            className="w-full h-auto object-contain"
             priority
           />
         </div>
 
         {/* Thumbnails */}
-        <div className="flex justify-center gap-4 overflow-x-auto pb-4">
+        <div className="flex justify-start ml-6 gap-4 overflow-x-auto pb-4">
           {bikeVariants[selectedColor].map((img, index) => (
             <button
               key={index}
               onClick={() => setSelectedImage(img)}
-              className={`border-2 rounded-md p-1 transition shrink-0 ${
+              className={`border-2 rounded-md transition shrink-0 ${
                 selectedImage === img
-                  ? "border-red-600"
+                  ? "border-black"
                   : "border-transparent hover:border-gray-400"
               }`}
             >
@@ -75,43 +87,53 @@ export default function BikeShowcase() {
         </div>
 
         {/* Color Selector */}
-        <div className="flex items-center text-black text-2xl gap-6 mt-4">
-          <span className="mr-2">Available Colors:</span>
-          <div className="flex gap-6">
-            {colors.map((color) => (
-              <div key={color.name} className="flex flex-col items-center">
-                <button
-                  onClick={() => {
-                    setSelectedColor(color.name);
-                    setSelectedImage(bikeVariants[color.name][0]);
-                  }}
-                  className={`w-10 h-10 rounded-full transition-transform duration-200 ${
-                    selectedColor === color.name
-                      ? "scale-110 ring-2"
-                      : "hover:ring-2"
-                  }`}
-                  style={{
-                    backgroundColor: color.hex,
-                    // darken the border when selected, lighter when hover
-                    boxShadow:
-                      selectedColor === color.name
-                        ? `0 0 0 3px ${color.border}`
-                        : `0 0 0 2px transparent`,
-                  }}
-                  title={color.name}
-                />
-                <span className="text-sm mt-2">{color.name}</span>
+        <div className="p-6 mt-6 w-full max-w-xl">
+          {/* Flex container with responsive direction */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            {/* LEFT SIDE: Price + Selected Color */}
+            <div className="flex flex-col">
+              <p className="text-gray-500 text-lg">Starting From</p>
+              <p className="text-3xl font-bold text-gray-900 mt-1 transition-all duration-500">
+                ₹{new Intl.NumberFormat("en-IN").format(250000)}
+              </p>
+              {selectedColor && (
+                <p className="text-md text-gray-600 mt-2">
+                  Selected: <span className="font-medium">{selectedColor}</span>
+                </p>
+              )}
+            </div>
+        
+            {/* RIGHT SIDE: Color Options */}
+            <div className="flex flex-col items-start md:items-end">
+              <p className="text-gray-600 text-sm mb-2">Choose Color:</p>
+              <div className="flex flex-wrap gap-6">
+                {colors.map((color) => (
+                  <div key={color.name} className="flex flex-col items-center">
+                    <button
+                      onClick={() => {
+                        setSelectedColor(color.name);
+                        setSelectedImage(bikeVariants[color.name][0]);
+                      }}
+                      className={`relative w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 ${
+                        selectedColor === color.name
+                          ? "scale-130 "
+                          : "hover:scale-105"
+                      }`}
+                      style={{ backgroundColor: color.hex }}
+                      title={color.name}
+                    >
+                      {/* {selectedColor === color.name && (
+                        <span className="absolute text-white text-lg">✔</span>
+                      )} */}
+                    </button>
+                    <span className="text-xs text-gray-600 mt-1">{color.name}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
 
-
-
-        {/* Price */}
-        <div className="text-center mt-6 text-2xl font-semibold text-gray-800">
-          $2,500
-        </div>
       </div>
     </section>
   );
