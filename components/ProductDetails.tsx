@@ -35,7 +35,7 @@ export default function ProductDetails() {
 
   return (
     <section className="w-full">
-      <div className="divide-y border-b border-white">
+      <div className="divide-y border-b border-[#303030]">
         {sections.map((item, index) => (
           <div key={index}>
             {/* Header */}
@@ -53,7 +53,7 @@ export default function ProductDetails() {
 
             {/* Content */}
             {openIndex === index && (
-              <div className="px-4 pb-4 text-[#303030]  whitespace-pre-line">
+              <div className="px-4 pb-4 text-[#303030] whitespace-pre-line">
                 {item.content}
               </div>
             )}

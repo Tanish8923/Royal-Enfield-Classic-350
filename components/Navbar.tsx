@@ -26,13 +26,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav
-  className={`
-    w-full mb-20 fixed top-0 left-0 z-50 
-    bg-[#303030] 
-    backdrop-blur-md transition-transform duration-300
-    ${visible ? "translate-y-0" : "-translate-y-full mb-16"}
-  `}
+      <nav className={`w-full mb-20 fixed top-0 left-0 z-50 bg-[#303030]  backdrop-blur-md transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full mb-16"} `}
 >
         <div className="max-w-7xl mx-auto flex items-center justify-center md:justify-between px-6">
           {/* Left Side - Logo */}
